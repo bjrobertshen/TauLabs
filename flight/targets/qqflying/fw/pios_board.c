@@ -139,7 +139,7 @@ static const struct pios_mpu60x0_cfg pios_mpu6050_cfg = {
 		.vector = PIOS_MPU9250_IRQHandler,
 		.line = EXTI_Line0,
 		.pin = {
-			.gpio = GPIOE,
+			.gpio = GPIOC,
 			.init = {
 				.GPIO_Pin = GPIO_Pin_0,
 				.GPIO_Speed = GPIO_Speed_100MHz,
@@ -1086,7 +1086,7 @@ void PIOS_Board_Init(void) {
 		}
 
 
-		if (PIOS_MPU9250_SPI_Init(pios_spi_gyro_accel_id, 1, mpu9250_cfg) != 0)
+		if (PIOS_MPU9250_SPI_Init(pios_spi_gyro_accel_id, 0, mpu9250_cfg) != 0)
 			panic(2);
 
 		if (PIOS_MPU9250_Test() != 0)
