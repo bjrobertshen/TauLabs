@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/milanart">
+        <file>images/qqflying.png</file>
+    </qresource>
+</RCC>

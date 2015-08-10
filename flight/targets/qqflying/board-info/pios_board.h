@@ -5,9 +5,9 @@
  * @addtogroup QQFlying QQFlying support files
  * @{
  *
- * @file       STM32F4xx_FlyingF4.c 
+ * @file       PIOS_BOARD.c 
  * @author     Tau Labs, http://taulabs.org, Copyright (C) 2012-2013
- * @brief      Board define file for FlyingF4
+ * @brief      Board define file for QQFlying
  * @see        The GNU Public License (GPL) Version 3
  * 
  *****************************************************************************/
@@ -222,6 +222,31 @@ extern uintptr_t pios_com_debug_id;
 // ADC
 //-------------------------
 #define PIOS_ADC_SUB_DRIVER_MAX_INSTANCES       3
+
+// PIOS_ADC_PinGet(0) = IN7
+// PIOS_ADC_PinGet(1) = IN8
+// PIOS_ADC_PinGet(2) = VRef
+// PIOS_ADC_PinGet(3) = Tempsensor
+// PIOS_ADC_PinGet(4) = Input from 1k resistor pad of BUZ only if BUZFixed input of PA4 and BUZ 1k resistor connected to PC15
+// PIOS_ADC_PinGet(5) = VBAT only if VbatFixed input moved from PC15 (pin4) to PC5 (pin25)
+//-------------------------
+#define PIOS_DMA_PIN_CONFIG \
+{ \
+{ GPIOA, GPIO_Pin_0, ADC_Channel_0 }, /* PWMIN7 pin input max 3.3V */ \
+{ GPIOA, GPIO_Pin_1, ADC_Channel_1 }, /* PWMIN8 pin input max 3.3V */ \
+{ NULL, 0, ADC_Channel_Vrefint }, /* Voltage reference */ \
+{ NULL, 0, ADC_Channel_TempSensor }, /* Temperature sensor */ \
+{ GPIOA, GPIO_Pin_4, ADC_Channel_4 }, /* BUZ 1k resistor pad Max 3.3V */ \
+{ GPIOC, GPIO_Pin_5, ADC_Channel_15 } /* BAT input max 35V */ \
+}
+
+/* we have to do all this to satisfy the PIOS_ADC_MAX_SAMPLES define in pios_adc.h */
+/* which is annoying because this then determines the rate at which we generate buffer turnover events */
+/* the objective here is to get enough buffer space to support 100Hz averaging rate */
+#define PIOS_ADC_NUM_CHANNELS 		6
+#define PIOS_ADC_MAX_OVERSAMPLING 	2
+#define PIOS_ADC_USE_ADC2 		0
+
 
 #define VREF_PLUS				3.0f
 

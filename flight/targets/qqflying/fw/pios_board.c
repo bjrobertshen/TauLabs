@@ -45,7 +45,7 @@
 #include "modulesettings.h"
 
 /* This file defines the what and where regarding all hardware connected to the
- * FlyingF4 board. Please see hardware/Production/FlyingF4/pinout.txt for
+ * QQFlying board. Please see hardware/Production/QQFlying/pinout.txt for
  * an overview.
  */
 

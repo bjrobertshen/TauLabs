@@ -1,4 +1,4 @@
-BOARD_TYPE          := 0x84
+BOARD_TYPE          := 0x8f
 BOARD_REVISION      := 0x01
 # Previous version was 0x081, 0x082 introduces partition extensions and forced boot from bkp registers
 BOOTLOADER_VERSION  := 0x82
@@ -6,7 +6,7 @@ HW_TYPE             := 0x00		# seems to be unused
 
 MCU                 := cortex-m4
 CHIP                := STM32F407VGT
-BOARD               := STM32F4xx_QQFLYINGF4
+BOARD               := STM32F4xx_QQFLYING
 MODEL               := HD
 MODEL_SUFFIX        := 
 

@@ -367,3 +367,10 @@ plugin_boards_stm.subdir = boards_stm
 plugin_boards_stm.depends = plugin_coreplugin
 plugin_boards_stm.depends = plugin_uavobjects
 SUBDIRS += plugin_boards_stm
+
+# Milan Art Design
+plugin_boards_milanart.subdir = boards_milanart
+plugin_boards_milanart.depends = plugin_coreplugin
+plugin_boards_milanart.depends = plugin_uavobjects
+SUBDIRS += plugin_boards_milanart
+

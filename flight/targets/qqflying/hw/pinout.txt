@@ -63,3 +63,6 @@ USART4_RXI (PC11)
 
 unused
 USART5_RXI (PD2)
+
+ADC
+Battery monitor	-> PC5
